@@ -1,19 +1,22 @@
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 public class Game {
     
     Strategy strat1;
     Strategy strat2;
     List<int[]> history = new LinkedList<int[]>();
+    String name;
     int[][][] payoffMatrix;
     public Game(int[][][]payoffMatrix){
         this.payoffMatrix = payoffMatrix;
+        this.name = "Game"+new Random().nextInt();
+
     }
 
-    public Game(){
-        int[][][] payoff = {{{50,50},{0,100}},{{100,0},{0,0}}};
-        new Game(payoff);
+    public Game(String name, int[][][] payoffMatrix){
+        this.payoffMatrix = payoffMatrix;
     }
 
     public int[] run(Strategy strat1, Strategy strat2, LinkedList<int[]> history){
@@ -57,6 +60,10 @@ public class Game {
         payoffSum[0] = payoffSum[0]/numTrials;
         payoffSum[1] = payoffSum[1]/numTrials;
         return payoffSum;
+    }
+
+    public String toString(){
+        return this.name;
     }
 
 }

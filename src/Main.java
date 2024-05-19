@@ -7,24 +7,20 @@ public class Main {
     public static void main(String[] args) {
         
         //******EXAMPLE GAMES*******
-        ArrayList<String> gameNames = new ArrayList<String>();
         ArrayList<Game> games = new ArrayList<Game>();
 
         //SHARE OR STEAL
         //The first move represents sharing, the second move represents stealing. On every move, there is 100 points in the pot. If both players decide to share, they each recieve 50. If one player steals and the other shares, the stealing player recieves 100, the other 0. If both players steal, they both recieve 0. 
         int[][][]shareOrStealPayoff = {{{50,50},{0,100}},{{100,0},{0,0}}};
-        Game shareOrSteal = new Game(shareOrStealPayoff);
-        gameNames.add("Share or Steal");
+        Game shareOrSteal = new Game("Share or Steal", shareOrStealPayoff);
         games.add(shareOrSteal);
 
         //Prisoners Dilemma
         //the first move represents cooperating, the second defecting. If both players cooperate they both recieve 3 points. If one defects and the other cooperates, the defecting players recieves 5, the other 0. If both defect, they both receieve 1 point. 
         int[][][]prisonerDilemmaPayoff = {{{3,3},{0,5}},{{5,0},{1,1}}};
-        Game prisonerDilemma = new Game(prisonerDilemmaPayoff);
-        gameNames.add("Prisoner's Dilemma");
+        Game prisonerDilemma = new Game("Prisoner's Dilemma", prisonerDilemmaPayoff);
         games.add(prisonerDilemma);
 
-        
         //********STRATEGIES ************/
         //strategies for two player games with 2 moves each
         
@@ -52,8 +48,8 @@ public class Main {
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to the Game Theory tournament. Please enter a number to choose a game or to create your own. ");
         int i = 0;
-        for (i = 0; i < gameNames.size(); i++) {
-            System.out.println(i+1+". "+gameNames.get(i));
+        for (i = 0; i < games.size(); i++) {
+            System.out.println(i+1+". "+games.get(i));
         }
         System.out.println(i+1+". Create your own");
         int gameNum = -1;
