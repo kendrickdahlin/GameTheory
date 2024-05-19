@@ -1,6 +1,11 @@
-## Getting Started
+## GameTheory
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Compares strategies for two-player non-zero sum matrix games. 
+
+##Classes
+
+#Main
+Contains the user interface. Program asks user to select an example game or create their own. 
 
 ## Folder Structure
 
